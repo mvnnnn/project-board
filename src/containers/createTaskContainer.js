@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { isEmpty } from "lodash";
 
 import * as actions from "../actions/categoryActions";
 import CreateTasksComponent from "../components/task/CreateTask";
@@ -82,44 +83,46 @@ export class CreateTask extends Component {
     const { taskTitle, particepants, selectedDate, progressValue } = this.state;
     const { category_id, showModal, category, taskId } = this.props;
 
-    if (showModal) {
-      const requestObj = {
-        category_id: category.category_id,
-        taskData: {
-          task_id: taskId,
-          task_title: taskTitle,
-          participant: particepants,
-          date: selectedDate,
-          progress: progressValue
-        }
-      };
-      this.props.actions.updateTask(requestObj);
-    } else {
-      let task_id =
-        this.idGenerator(5) + this.state.taskTitle + this.idGenerator(5);
+    if (!isEmpty(taskTitle) && !isEmpty(particepants)) {
+      if (showModal) {
+        const requestObj = {
+          category_id: category.category_id,
+          taskData: {
+            task_id: taskId,
+            task_title: taskTitle,
+            participant: particepants,
+            date: selectedDate,
+            progress: progressValue
+          }
+        };
+        this.props.actions.updateTask(requestObj);
+      } else {
+        let task_id =
+          this.idGenerator(5) + this.state.taskTitle + this.idGenerator(5);
 
-      const requestObj = {
-        category_id: category_id,
-        taskData: {
-          task_id,
-          task_title: taskTitle,
-          participant: particepants,
-          date: selectedDate,
-          progress: progressValue
-        }
-      };
-      this.props.actions.createTask(requestObj);
+        const requestObj = {
+          category_id: category_id,
+          taskData: {
+            task_id,
+            task_title: taskTitle,
+            participant: particepants,
+            date: selectedDate,
+            progress: progressValue
+          }
+        };
+        this.props.actions.createTask(requestObj);
+      }
+
+      this.props.clearCategoryData();
+
+      this.setState({
+        showCreateTaskModal: false,
+        taskTitle: null,
+        particepants: [],
+        selectedDate: new Date(),
+        progressValue: 0
+      });
     }
-
-    this.props.clearCategoryData();
-
-    this.setState({
-      showCreateTaskModal: false,
-      taskTitle: null,
-      particepants: [],
-      selectedDate: new Date(),
-      progressValue: 0
-    });
   };
 
   onChangeDate = e => {
@@ -141,7 +144,6 @@ export class CreateTask extends Component {
   };
 
   onChangeSliderValue = e => {
-    // console.log(e);
     this.setState({
       progressValue: e.target.value
     });
@@ -155,10 +157,13 @@ export class CreateTask extends Component {
       selectedDate,
       progressValue
     } = this.state;
+
+    const { showModal } = this.props;
     return (
       <div>
         <CreateTasksComponent
           showCreateTaskModal={showCreateTaskModal}
+          showModal={showModal}
           taskTitle={taskTitle}
           particepants={particepants}
           selectedDate={selectedDate}

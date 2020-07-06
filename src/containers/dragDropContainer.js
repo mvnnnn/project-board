@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import update from "react-addons-update";
 import CardContainer from "./cardContainer";
 import { DropTarget } from "react-dnd";
@@ -19,7 +19,7 @@ class DragDropContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      cards: this.props.list
+      cards: nextProps.list
     });
   }
 
@@ -34,13 +34,13 @@ class DragDropContainer extends Component {
   }
 
   removeCard(index) {
-    this.setState(
-      update(this.state, {
-        cards: {
-          $splice: [[index, 1]]
-        }
-      })
-    );
+    // this.setState(
+    //   update(this.state, {
+    //     cards: {
+    //       $splice: [[index, 1]]
+    //     }
+    //   })
+    // );
   }
 
   moveCard(dragIndex, hoverIndex) {
@@ -76,19 +76,22 @@ class DragDropContainer extends Component {
     return connectDropTarget(
       <div style={style}>
         {cards.map((card, i) => {
-          console.log("card", card);
           return (
-            <CardContainer
-              key={card.task_id}
-              index={card.task_id}
-              listId={this.props.id}
-              card={card}
-              categoryId={id}
-              onClickOnCard={onClickOnCard}
-              // projectTitle={this.props.projectTitle}
-              removeCard={() => this.removeCard()}
-              moveCard={() => this.moveCard()}
-            />
+            <Fragment>
+              {card && (
+                <CardContainer
+                  key={card.task_id}
+                  index={card.task_id}
+                  listId={id}
+                  card={card}
+                  categoryId={id}
+                  onClickOnCard={onClickOnCard}
+                  // projectTitle={this.props.projectTitle}
+                  removeCard={() => this.removeCard()}
+                  moveCard={() => this.moveCard()}
+                />
+              )}
+            </Fragment>
           );
         })}
       </div>
@@ -109,7 +112,8 @@ const cardTarget = {
 
 function mapStateToProps(state) {
   return {
-    category_fetching: state.categoryReducer.category_fetching
+    category_fetching: state.categoryReducer.category_fetching,
+    categories: state.categoryReducer.categories
   };
 }
 

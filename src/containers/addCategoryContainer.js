@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { isEmpty } from "lodash";
 
 import * as actions from "../actions/categoryActions";
 import AddCategoryComponent from "../components/task/category/AddCategory";
@@ -31,11 +32,13 @@ export class AddCategoryContainer extends Component {
 
   addCategory = () => {
     const { categoryName } = this.state;
-    this.props.actions.addCategory(categoryName);
-    this.setState({
-      showCreateCategoryModal: false,
-      categoryName: null
-    });
+    if (!isEmpty(categoryName)) {
+      this.props.actions.addCategory(categoryName);
+      this.setState({
+        showCreateCategoryModal: false,
+        categoryName: null
+      });
+    }
   };
 
   render() {

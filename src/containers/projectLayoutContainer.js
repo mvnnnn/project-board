@@ -1,18 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Nav, Glyphicon } from "react-bootstrap";
 
 import NavBar from "../components/navbar/navbar";
 import ProjectDetails from "../components/project/ProjectDetails";
 
 import * as actions from "../actions/categoryActions";
-
-const style = {
-  color: "white",
-  backgroundColor: "#00b386",
-  fontSize: "25"
-};
 
 export class ProjectDetailContainer extends Component {
   constructor() {
@@ -44,19 +37,9 @@ export class ProjectDetailContainer extends Component {
     const { categories } = this.props;
     const { taskId, categoryId } = this.state;
 
-    console.log(categories);
-
     return (
       <div>
-        <NavBar>
-          <Nav pullRight>
-            <div>
-              <a href="/">
-                <Glyphicon bsSize="large" style={style} glyph="remove" />
-              </a>
-            </div>
-          </Nav>
-        </NavBar>
+        <NavBar />
 
         <ProjectDetails
           categories={categories}
@@ -71,7 +54,6 @@ export class ProjectDetailContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     categories: state.categoryReducer.categories,
     category_fetching: state.categoryReducer.category_fetching

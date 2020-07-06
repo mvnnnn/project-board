@@ -20,6 +20,7 @@ import { Candidates } from "../../services/candidateData";
 
 const createTasksComponent = ({
   showCreateTaskModal,
+  showModal,
   taskTitle,
   particepants,
   selectedDate,
@@ -45,9 +46,9 @@ const createTasksComponent = ({
       <ModalComponent
         show={showCreateTaskModal}
         onHide={closeCreateTaskModal}
-        ModalTitle="Create Task"
+        ModalTitle={showModal ? "Update Task" : "Create Task"}
         addAdd={createTasks}
-        addBtnLabel="Create"
+        addBtnLabel={showModal ? "Update" : "Create"}
       >
         <form>
           <FormGroup controlId="formBasicText" validationState="">
