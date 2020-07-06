@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/project-board/static/css/main.3ae3cc05.chunk.css",
-    "main.js": "/project-board/static/js/main.c3b71d5e.chunk.js",
-    "main.js.map": "/project-board/static/js/main.c3b71d5e.chunk.js.map",
+    "main.css": "/project-board/static/css/main.01ed821a.chunk.css",
+    "main.js": "/project-board/static/js/main.b1052c93.chunk.js",
+    "main.js.map": "/project-board/static/js/main.b1052c93.chunk.js.map",
     "runtime-main.js": "/project-board/static/js/runtime-main.e8016796.js",
     "runtime-main.js.map": "/project-board/static/js/runtime-main.e8016796.js.map",
     "static/css/2.802fc630.chunk.css": "/project-board/static/css/2.802fc630.chunk.css",
-    "static/js/2.f956725e.chunk.js": "/project-board/static/js/2.f956725e.chunk.js",
-    "static/js/2.f956725e.chunk.js.map": "/project-board/static/js/2.f956725e.chunk.js.map",
+    "static/js/2.35332dc7.chunk.js": "/project-board/static/js/2.35332dc7.chunk.js",
+    "static/js/2.35332dc7.chunk.js.map": "/project-board/static/js/2.35332dc7.chunk.js.map",
     "index.html": "/project-board/index.html",
-    "precache-manifest.de2ccd2f4e2d661c778a57c0d12cc1fd.js": "/project-board/precache-manifest.de2ccd2f4e2d661c778a57c0d12cc1fd.js",
+    "precache-manifest.dfe6edc6841b30a165cf569dd18c2aea.js": "/project-board/precache-manifest.dfe6edc6841b30a165cf569dd18c2aea.js",
     "service-worker.js": "/project-board/service-worker.js",
     "static/css/2.802fc630.chunk.css.map": "/project-board/static/css/2.802fc630.chunk.css.map",
-    "static/css/main.3ae3cc05.chunk.css.map": "/project-board/static/css/main.3ae3cc05.chunk.css.map",
-    "static/js/2.f956725e.chunk.js.LICENSE.txt": "/project-board/static/js/2.f956725e.chunk.js.LICENSE.txt",
+    "static/css/main.01ed821a.chunk.css.map": "/project-board/static/css/main.01ed821a.chunk.css.map",
+    "static/js/2.35332dc7.chunk.js.LICENSE.txt": "/project-board/static/js/2.35332dc7.chunk.js.LICENSE.txt",
     "static/media/AlexaRoy.png": "/project-board/static/media/AlexaRoy.e5949df4.png",
     "static/media/JohnCena.png": "/project-board/static/media/JohnCena.6e949f40.png",
     "static/media/PeterSnow.png": "/project-board/static/media/PeterSnow.a7b494ce.png"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.e8016796.js",
     "static/css/2.802fc630.chunk.css",
-    "static/js/2.f956725e.chunk.js",
-    "static/css/main.3ae3cc05.chunk.css",
-    "static/js/main.c3b71d5e.chunk.js"
+    "static/js/2.35332dc7.chunk.js",
+    "static/css/main.01ed821a.chunk.css",
+    "static/js/main.b1052c93.chunk.js"
   ]
 }
