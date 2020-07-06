@@ -1,0 +1,21 @@
+.model {
+  &_btn {
+    &_create {
+      margin-left: 10px;
+      background-color: #00b386;
+      color: white;
+    }
+    &_cancel {
+      background-color: white;
+      color: grey;
+      border-color: grey;
+    }
+  }
+  &_button {
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: -5px;
+    padding-bottom: -5px;
+  }
+}

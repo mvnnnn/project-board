@@ -1,0 +1,13 @@
+.nav {
+  &-component {
+    background: orange;
+    .navbar {
+      background-color: #00b386;
+      padding: 1%;
+    }
+    a {
+      color: white;
+      font-size: 25px;
+    }
+  }
+}
